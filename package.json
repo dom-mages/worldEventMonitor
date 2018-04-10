@@ -1,6 +1,7 @@
 {
   "name": "world-map",
   "version": "0.1.0",
+  "homepage": "https://dom-mages.github.io/worldEventMonitor/",
   "private": true,
   "devDependencies": {
     "react-scripts": "1.1.1"
