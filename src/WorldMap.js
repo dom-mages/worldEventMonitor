@@ -84,7 +84,7 @@ class WorldMap extends Component {
   generateRandomEvent = () => {
     const event = { ...sampleMarks[Math.floor(Math.random() * sampleMarks.length)], ...sampleEvents[Math.floor(Math.random() * sampleEvents.length)], time: Date.now(), id: generateRandomID() }
     const events = [...this.state.eventList, event];
-    if (events.length > 5) {
+    if (events.length > 10) {
       events.splice(0, 1)
     }
     this.setState({ event, eventList: events })

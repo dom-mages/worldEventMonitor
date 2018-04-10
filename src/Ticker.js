@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // on enter pushes new item with 0 height
 // on leave makes index 0 to height 0 and index 5 to height 100%
@@ -13,10 +14,15 @@ export default class Ticker extends Component {
   render() {
     console.log(this.props.events);
     return (
-      <ul className="eventTracker">
+      <ReactCSSTransitionGroup
+        component="ul"
+        className="eventTracker"
+        transitionName="example"
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={300}>
         {this.props.events.map(data => {
           return (
-            <li key={`marker-${1 * Math.random()}`} className="eventTrackerBox" style={{ backgroundColor: data.color }}>
+            <li key={data.time + data.coordinates[0]} className="eventTrackerBox" style={{ backgroundColor: data.color }}>
               <div className="eventTrackerItem">
                 <div className="eventTrackerItem__TS">
                   {new Date(data.time).toISOString().substring(11, 19)}
@@ -34,7 +40,7 @@ export default class Ticker extends Component {
             </li>
           )
         })}
-      </ul>
+      </ReactCSSTransitionGroup>
     )
   }
 }
