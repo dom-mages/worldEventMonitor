@@ -6,6 +6,10 @@ import { feature } from "topojson-client"
 import Ticker from './Ticker';
 import EventMarker from './EventMarker';
 
+const generateRandomID = () => {
+  return Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, Math.floor(Math.random() * 2 + 1)) + Math.floor(1000 + Math.random() * 9000);
+}
+
 const sampleMarks = [
   { name: "Vienna", coordinates: [16.363449, 48.210033] },
   { name: "Zurich", coordinates: [8.564572, 47.451542] },
@@ -78,7 +82,7 @@ class WorldMap extends Component {
   }
 
   generateRandomEvent = () => {
-    const event = { ...sampleMarks[Math.floor(Math.random() * sampleMarks.length)], ...sampleEvents[Math.floor(Math.random() * sampleEvents.length)], time: Date.now() }
+    const event = { ...sampleMarks[Math.floor(Math.random() * sampleMarks.length)], ...sampleEvents[Math.floor(Math.random() * sampleEvents.length)], time: Date.now(), id: generateRandomID() }
     const events = [...this.state.eventList, event];
     if (events.length > 5) {
       events.splice(0, 1)

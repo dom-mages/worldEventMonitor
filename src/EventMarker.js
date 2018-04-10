@@ -29,7 +29,7 @@ export default class EventMarker extends Component {
                 fill="black"
                 alignmentBaseline="central"
               >
-                <tspan font-weight="bold" textAnchor="middle" alignmentBaseline="central">p3141</tspan> {event.event}
+                <tspan font-weight="bold" textAnchor="middle" alignmentBaseline="central">{event.id}</tspan> {event.event}
               </text>
               <circle
                 className="monitor__marker"
