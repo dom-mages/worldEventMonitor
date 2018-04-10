@@ -17,7 +17,20 @@ export default class Ticker extends Component {
         {this.props.events.map(data => {
           return (
             <li key={`marker-${1 * Math.random()}`} className="eventTrackerBox" style={{ backgroundColor: data.color }}>
-              <div className="eventTrackerItem">{JSON.stringify(data)}</div>
+              <div className="eventTrackerItem">
+                <div className="eventTrackerItem__TS">
+                  {new Date(data.time).toISOString().substring(11, 19)}
+                </div>
+                <div className="eventTrackerItem__ID">
+                  {data.id}
+                </div>
+                <div className="eventTrackerItem__ev">
+                  {data.event}
+                </div>
+                <div className="eventTrackerItem__city">
+                  {data.name}
+                </div>
+              </div>
             </li>
           )
         })}

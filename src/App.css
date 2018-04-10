@@ -33,9 +33,31 @@ body {
 }
 
 .eventTrackerItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
     height: 100%;
     border: 1px solid black;
+}
+
+.eventTrackerItem__TS {
+    align-items: center;
+    padding-left: 20px;
+    width: 5%;
+}
+
+.eventTrackerItem__ID {
+    font-weight: bold;
+    width: 5%;
+}
+
+.eventTrackerItem__ev {
+    width: 10%;
+}
+
+.eventTrackerItem__city {
+    width: 20%;
 }
 
 .tryit {
